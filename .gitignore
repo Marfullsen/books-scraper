@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Scraped books files.
+scraped_books.csv
+
 # C extensions
 *.so
 
