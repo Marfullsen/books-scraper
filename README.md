@@ -1,54 +1,71 @@
-# Test Web-scraper Tech-K
+# BooKs ScRaPeR
 
-## Instrucciones de uso
----
+## Contenidos
 
-1. [Duplicar](https://help.github.com/es/github/creating-cloning-and-archiving-repositories/duplicating-a-repository) el proyecto
-2. Cambiar su [visibilidad](https://help.github.com/es/github/administering-a-repository/setting-repository-visibility) a privado
-3. Agregar al usuario `techk-devs` como colaborador dentro del repositorio
-4. Desarrollar lo que se indica en la siguiente sección en Python3. Si existen supuestos, estos deben definirse claramente en el README
-5. Notificar mediante email cuando este listo y enviar el link del repositorio privado.
+- [¿Qué es Books Scraper?](#about)
+- [Echa un vistazo](#getting_started)
+- [Uso](#usage)
+- [Referencias](#refs)
 
-## Instrucciones de desarrollo
----
+## ¿Qué es Books Scraper? <a name = "about"></a>
 
-1. Buscar todos los libros (recorrer la paginación) de este link: http://books.toscrape.com/
-2. De cada libro se debe obtener la siguiente información:
-    * Title
-    * Price
-    * Stock
-    * Category (Travel, Mystery, Historical Fiction, etc)
-    * Cover (url de la carátula del libro)
-    * Product Description
-        * UPC
-        * Product Type
-        * Price (excl. tax)
-        * Price (incl. tax)
-        * Tax
-        * Availability
-        * Number of reviews
-3. Los resultados se deben exportar en un archivo CSV con las siguientes cabeceras:
-    * Title
-    * Price
-    * Stock
-    * Category
-    * Cover
-    * UPC
-    * Product Type
-    * Price (excl. tax)
-    * Price (incl. tax)
-    * Tax
-    * Availability
-    * Number of reviews
-4. Se debe incluir un archivo requeriments.txt con las dependencias que requiera el script.
+Prueba de postulación a Tech-K, el proyecto consiste en hacer _scraping_ al sitio [books.ToScrape.com](https://books.toscrape.com/), obtener la información de mil libros y entregar un archivo CSV con los datos recopilados.
 
-## Bonus que suman puntos
----
-* Usar las librerías [Requests](http://docs.python-requests.org/en/master/) y [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-* Uso de tests unitarios
+## Archivo original
 
-## En qué nos fijaremos
----
-* Correcto uso de GIT
-* Patrones de diseño
-* Orden del código
+El archivo de instrucciones original puede encontrarse [haciendo click aquí](./INSTRUCTIONS.md)
+
+## Echa un vistazo <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Requisitos Previos
+
+- Python3
+- Dependencias externas para Python3
+
+El archivo de requisitos puede ser usado con el comando `python -m pip install -r requirements.txt`
+
+Detalladamente, las bibliotecas a instalar son:
+
+```
+pip install requests
+pip install beautifulsoup4
+pip install lxml
+pip install pytest
+```
+
+## Uso <a name = "usage"></a>
+
+Al tener una conexión a internet y corroborar que el sitio se encuentre estable, bastará con ejecutar el archivo `main.py`
+
+Cada página cuenta con 20 libros, revisar cada uno de esos libros demora alrededor de un segundo **por libro**.
+
+```
+Página 1                    
+Página 2                    
+Página 3                    
+
+...                  
+
+Página 50                   
+Se procesarion 1000 libros. 
+```
+
+**Nota:** Una vez iniciado el proceso se irá rellenando el archivo CSV, en caso de problemas con la ejecución, el archivo quedará con la cantidad de datos que haya logrado procesar en aquel momento.
+
+Las pruebas unitarias se pueden realizar con el comando `pytest -xv tests.py`
+
+## Referencias <a name = "refs"></a>
+
+- Documentación de BS - [https://www.crummy.com/software/BeautifulSoup/bs4/doc/](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- Documentación de CSV - [https://docs.python.org/3/library/csv.html](https://docs.python.org/3/library/csv.html)
+- Primer libro del siito - [https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html](https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html)
+- Reading and Writing CSV Files in Python - [https://realpython.com/python-csv/](https://realpython.com/python-csv/)
+- Python docs, CSV Library - [https://docs.python.org/3/library/csv.html](https://docs.python.org/3/library/csv.html)
+- Enumerate Python [https://www.geeksforgeeks.org/enumerate-in-python/](https://www.geeksforgeeks.org/enumerate-in-python/)
+- Fatal bad revision GIT - [stackoverflow.com/what-does-fatal-bad-revision-mean](https://stackoverflow.com/questions/14550802/what-does-fatal-bad-revision-mean)
+- Snippet encoding - [https://www.codegrepper.com/code-examples/python/csv+writerow+without+newline](https://www.codegrepper.com/code-examples/python/csv+writerow+without+newline)
+- Decoding - [stackoverflow.com/how-to-decode-scrambled-character-encoding-special-character-encoding](https://stackoverflow.com/questions/8706107/how-to-decode-scrambled-character-encoding-special-character-encoding)
+- Pounds Charcode problem - [https://stackoverflow.com/questions/55737316/python-selenium-text-returns-%C3%A2%E2%82%AC-instead-of-apostrophe](https://stackoverflow.com/questions/55737316/python-selenium-text-returns-%C3%A2%E2%82%AC-instead-of-apostrophe)
+- Encoding - [https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters](https://stackoverflow.com/questions/27092833/unicodeencodeerror-charmap-codec-cant-encode-characters)
